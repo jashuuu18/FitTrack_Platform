@@ -11,7 +11,7 @@ from pydantic import (
 
 
 # =================================
-# USER SCHEMAS - MODULE 1
+# USER SCHEMAS 
 # =================================
 
 class UserCreate(BaseModel):
@@ -49,7 +49,7 @@ class Token(BaseModel):
 
 
 # =================================
-# WORKOUT SCHEMAS - MODULE 2
+# WORKOUT SCHEMAS 
 # =================================
 
 class WorkoutCreate(BaseModel):
@@ -91,7 +91,7 @@ class WorkoutResponse(BaseModel):
 
 
 # =================================
-# PROGRESS SCHEMAS - MODULE 3
+# PROGRESS SCHEMAS 
 # =================================
 
 class ProgressResponse(BaseModel):
@@ -105,7 +105,7 @@ class ProgressResponse(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
 #================================
-# GOAL SCHEMAS - MODULE 4
+# GOAL SCHEMAS 
 #================================
 
 class GoalCreate(BaseModel):
@@ -143,5 +143,89 @@ class GoalResponse(BaseModel):
     status: str
     progress_percentage: float
     created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+# =================================
+# WORKOUT PLAN SCHEMAS 
+# =================================
+
+class WorkoutPlanCreate(BaseModel):
+    title: str = Field(
+        ...,
+        min_length=2,
+        max_length=150
+    )
+
+    description: str | None = Field(
+        default=None,
+        max_length=2000
+    )
+
+    scheduled_date: date
+
+
+class WorkoutPlanUpdate(BaseModel):
+    title: str | None = Field(
+        default=None,
+        min_length=2,
+        max_length=150
+    )
+
+    description: str | None = Field(
+        default=None,
+        max_length=2000
+    )
+
+    scheduled_date: date | None = None
+
+
+class WorkoutPlanResponse(BaseModel):
+    id: int
+    user_id: int
+    title: str
+    description: str | None
+    scheduled_date: date
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+# =================================
+# EXERCISE SCHEMAS 
+# =================================
+
+class ExerciseResponse(BaseModel):
+    id: int
+    name: str
+    category: str
+    description: str
+    duration: int
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+
+class ExerciseWorkoutCreate(BaseModel):
+    workout_date: date = Field(default_factory=date.today)
+
+    duration: int | None = Field(
+        default=None,
+        gt=0
+    )
+
+    calories_burned: int = Field(
+        default=0,
+        ge=0
+    )
+
+
+class ExerciseWorkoutResponse(BaseModel):
+    id: int
+    user_id: int
+    workout_name: str
+    category: str
+    duration: int
+    calories_burned: int
+    workout_date: date
 
     model_config = ConfigDict(from_attributes=True)

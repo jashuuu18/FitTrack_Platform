@@ -1,0 +1,366 @@
+
+.workout-plans-page {
+  padding: 25px;
+  color: #1e293b;
+}
+
+.workout-plans-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.workout-plans-header h1 {
+  font-size: 28px;
+  margin: 0 0 8px;
+}
+
+.workout-plans-header p {
+  color: #64748b;
+  margin: 0;
+}
+
+.add-plan-btn,
+.no-plans button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.workout-plans-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 25px;
+  align-items: start;
+}
+
+.calendar-section,
+.selected-date-section,
+.upcoming-plans-section {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.calendar-header h2 {
+  font-size: 19px;
+  margin: 0;
+}
+
+.calendar-header button {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: #eff6ff;
+  color: #2563eb;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.calendar-weekday {
+  text-align: center;
+  font-weight: 600;
+  font-size: 12px;
+  color: #64748b;
+  padding: 10px 0;
+}
+
+.calendar-empty {
+  min-height: 70px;
+}
+
+.calendar-day {
+  min-width: 0;
+  min-height: 70px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  border-radius: 8px;
+  padding: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.calendar-day:hover {
+  background: #eff6ff;
+}
+
+.calendar-day.selected-day {
+  border: 2px solid #2563eb;
+  background: #eff6ff;
+}
+
+.calendar-day.today-day > span:first-child {
+  font-weight: 800;
+  color: #2563eb;
+}
+
+.calendar-plan-indicator {
+  color: #166534;
+  background: #dcfce7;
+  border-radius: 5px;
+  padding: 3px 4px;
+  font-size: 10px;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.selected-date-section h2,
+.upcoming-plans-section h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.selected-date-label {
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+.no-plans {
+  text-align: center;
+  padding: 30px 10px;
+  background: #f8fafc;
+  border-radius: 10px;
+}
+
+.no-plans p,
+.no-upcoming-plans {
+  color: #64748b;
+}
+
+.workout-plan-card {
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #2563eb;
+  border-radius: 9px;
+  padding: 15px;
+  margin-bottom: 12px;
+}
+
+.workout-plan-card h3 {
+  margin: 0 0 8px;
+}
+
+.workout-plan-card p {
+  color: #64748b;
+  font-size: 14px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.plan-card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.plan-card-actions button {
+  border: none;
+  border-radius: 6px;
+  padding: 8px 13px;
+  cursor: pointer;
+}
+
+.edit-plan-btn {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.delete-plan-btn {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.upcoming-plans-section {
+  margin-top: 25px;
+}
+
+.upcoming-plan-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.upcoming-plan-card {
+  border: 1px solid #e2e8f0;
+  padding: 16px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.upcoming-plan-card h3 {
+  font-size: 16px;
+  margin: 0 0 8px;
+}
+
+.upcoming-plan-card p {
+  color: #64748b;
+  margin: 0;
+  font-size: 13px;
+}
+
+.upcoming-plan-card button {
+  border: none;
+  background: #eff6ff;
+  color: #1d4ed8;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.workout-plan-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.workout-plan-modal {
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: white;
+  border-radius: 14px;
+  padding: 25px;
+}
+
+.workout-plan-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.workout-plan-modal-header h2 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.close-modal-btn {
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #64748b;
+}
+
+.workout-plan-modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.workout-plan-modal label {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.workout-plan-modal input,
+.workout-plan-modal textarea {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+.workout-plan-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.workout-plan-form-actions button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.cancel-plan-btn {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.save-plan-btn {
+  background: #2563eb;
+  color: white;
+}
+
+.workout-plan-error {
+  background: #fee2e2;
+  color: #991b1b;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 20px;
+}
+
+.workout-plans-loading {
+  padding: 40px;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .workout-plans-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .workout-plans-page {
+    padding: 15px;
+  }
+
+  .workout-plans-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .upcoming-plan-list {
+    grid-template-columns: 1fr;
+  }
+
+  .calendar-day {
+    min-height: 55px;
+    padding: 4px;
+  }
+
+  .calendar-plan-indicator {
+    font-size: 9px;
+  }
+}

@@ -1,0 +1,191 @@
+
+.personal-dashboard {
+  padding: 25px;
+  max-width: 1200px;
+  margin: auto;
+  color: #1f2937;
+}
+
+.pd-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.pd-header h1 {
+  margin-bottom: 8px;
+  font-size: 28px;
+}
+
+.pd-header p {
+  color: #6b7280;
+}
+
+.pd-header button,
+.pd-error button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+.pd-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.pd-stat-card {
+  padding: 22px;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+}
+
+.pd-stat-card span {
+  font-size: 30px;
+}
+
+.pd-stat-card h3 {
+  margin: 12px 0;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+.pd-stat-card strong {
+  font-size: 25px;
+}
+
+.pd-section {
+  margin-top: 30px;
+}
+
+.pd-section h2 {
+  margin-bottom: 16px;
+  font-size: 21px;
+}
+
+.pd-today-card,
+.pd-streak-card,
+.pd-item,
+.pd-badge {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.pd-streak-card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.pd-streak-card strong {
+  font-size: 24px;
+}
+
+.pd-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.pd-item h3 {
+  margin-bottom: 10px;
+}
+
+.pd-item p {
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+.pd-progress-track {
+  height: 10px;
+  background: #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+
+.pd-progress-fill {
+  height: 100%;
+  background: #16a34a;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.pd-badges {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.pd-badge {
+  text-align: center;
+}
+
+.pd-badge span {
+  font-size: 35px;
+}
+
+.pd-badge h3 {
+  margin: 10px 0;
+}
+
+.pd-badge p,
+.pd-empty,
+.pd-item small {
+  color: #6b7280;
+}
+
+.pd-notification-count {
+  margin-left: 12px;
+  font-size: 13px;
+  color: #2563eb;
+}
+
+.pd-loading,
+.pd-error {
+  padding: 40px;
+  text-align: center;
+}
+
+.pd-error {
+  color: #dc2626;
+}
+
+@media (max-width: 900px) {
+  .pd-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pd-badges {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .personal-dashboard {
+    padding: 15px;
+  }
+
+  .pd-header {
+    align-items: flex-start;
+  }
+
+  .pd-header h1 {
+    font-size: 22px;
+  }
+
+  .pd-stats-grid,
+  .pd-list,
+  .pd-streak-card,
+  .pd-badges {
+    grid-template-columns: 1fr;
+  }
+}

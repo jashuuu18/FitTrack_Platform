@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.database import Base, engine
-from app.routers import auth, workouts, progress, goals, reports, notifications
+from app.routers import auth, workouts, progress, goals, reports, notifications, workout_plans, exercises, progress_comparison, streaks, badges, personalized_dashboard
 
 # Create all database tables
 Base.metadata.create_all(bind=engine)
@@ -36,8 +36,12 @@ app.include_router(progress.router)
 app.include_router(goals.router)
 app.include_router(reports.router)
 app.include_router(notifications.router)
-
-
+app.include_router(workout_plans.router)
+app.include_router(exercises.router)
+app.include_router(progress_comparison.router)
+app.include_router(streaks.router)
+app.include_router(badges.router)
+app.include_router(personalized_dashboard.router)
 
 @app.get("/")
 def home():

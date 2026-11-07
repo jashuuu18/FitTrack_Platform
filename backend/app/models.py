@@ -18,7 +18,7 @@ from app.database import Base
 
 
 # =================================
-# USER MODEL - MODULE 1
+# USER MODEL 
 # =================================
 
 class User(Base):
@@ -56,7 +56,7 @@ class User(Base):
 
 
 # =================================
-# WORKOUT MODEL - MODULE 2
+# WORKOUT MODEL 
 # =================================
 
 class Workout(Base):
@@ -118,7 +118,7 @@ class Workout(Base):
 
 
 # =================================
-# PROGRESS MODEL - MODULE 3
+# PROGRESS MODEL 
 # =================================
 
 class Progress(Base):
@@ -178,7 +178,7 @@ class Progress(Base):
     )
 
 #=============================
-# GOAL MODEL - MODULE 4 
+# GOAL MODEL  
 #=============================
 
 class Goal(Base):
@@ -217,7 +217,7 @@ class Goal(Base):
         onupdate=func.now()
     )
 #==========================
-# NOTIFICATION MODEL - MODULE 5 
+# NOTIFICATION MODEL 
 #==========================
 class Notification(Base):
     __tablename__ = "notifications"
@@ -231,6 +231,190 @@ class Notification(Base):
     is_read = Column(Boolean, default=False, nullable=False)
 
     created_at = Column(
+        DateTime(timezone=True),
+        server_default=func.now(),
+        nullable=False
+    )
+
+
+# =================================
+# WORKOUT PLAN MODEL 
+# =================================
+
+class WorkoutPlan(Base):
+    __tablename__ = "workout_plans"
+
+    __table_args__ = (
+        CheckConstraint(
+            "length(title) > 0",
+            name="check_workout_plan_title"
+        ),
+    )
+
+    id = Column(
+        Integer,
+        primary_key=True,
+        index=True
+    )
+
+    user_id = Column(
+        Integer,
+        ForeignKey("users.id"),
+        nullable=False,
+        index=True
+    )
+
+    title = Column(
+        String(150),
+        nullable=False
+    )
+
+    description = Column(
+        Text,
+        nullable=True
+    )
+
+    scheduled_date = Column(
+        Date,
+        nullable=False,
+        index=True
+    )
+
+    created_at = Column(
+        DateTime(timezone=True),
+        server_default=func.now(),
+        nullable=False
+    )
+
+# =================================
+# EXERCISE MODEL 
+# =================================
+
+class Exercise(Base):
+    __tablename__ = "exercises"
+
+    __table_args__ = (
+        CheckConstraint(
+            "duration > 0",
+            name="check_exercise_duration"
+        ),
+        CheckConstraint(
+            "category IN ('Cardio', 'Strength', 'Yoga')",
+            name="check_exercise_category"
+        ),
+    )
+
+    id = Column(
+        Integer,
+        primary_key=True,
+        index=True
+    )
+
+    name = Column(
+        String(150),
+        nullable=False,
+        index=True
+    )
+
+    category = Column(
+        String(30),
+        nullable=False,
+        index=True
+    )
+
+    description = Column(
+        Text,
+        nullable=False
+    )
+
+    duration = Column(
+        Integer,
+        nullable=False
+    )
+
+    created_at = Column(
+        DateTime(timezone=True),
+        server_default=func.now(),
+        nullable=False
+    )
+#=============================
+# STREAK MODEL
+#=============================
+class Streak(Base):
+    __tablename__ = "streaks"
+
+    id = Column(Integer, primary_key=True, index=True)
+
+    user_id = Column(
+        Integer,
+        ForeignKey("users.id"),
+        unique=True,
+        nullable=False,
+        index=True
+    )
+
+    current_streak = Column(Integer, default=0, nullable=False)
+    longest_streak = Column(Integer, default=0, nullable=False)
+    last_workout_date = Column(Date, nullable=True)
+
+    created_at = Column(
+        DateTime(timezone=True),
+        server_default=func.now(),
+        nullable=False
+    )
+
+    updated_at = Column(
+        DateTime(timezone=True),
+        server_default=func.now(),
+        onupdate=func.now(),
+        nullable=False
+    )
+
+class Badge(Base):
+    __tablename__ = "badges"
+
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String(100), unique=True, nullable=False)
+    description = Column(Text, nullable=False)
+    icon = Column(String(50), nullable=False)
+
+    created_at = Column(
+        DateTime(timezone=True),
+        server_default=func.now(),
+        nullable=False
+    )
+
+#=============================
+# USER BADGE MODEL
+#=============================
+class UserBadge(Base):
+    __tablename__ = "user_badges"
+
+    __table_args__ = (
+        UniqueConstraint(
+            "user_id",
+            "badge_id",
+            name="unique_user_badge"
+        ),
+    )
+
+    id = Column(Integer, primary_key=True, index=True)
+
+    user_id = Column(
+        Integer,
+        ForeignKey("users.id"),
+        nullable=False,
+        index=True
+    )
+
+    badge_id = Column(
+        Integer,
+        ForeignKey("badges.id"),
+        nullable=False,
+        index=True
+    )
+
+    earned_at = Column(
         DateTime(timezone=True),
         server_default=func.now(),
         nullable=False

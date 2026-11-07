@@ -646,3 +646,30 @@
   background: #ccfbf1;
   color: #0f766e;
 }
+
+.planner-card {
+  border-top: 4px solid #0891b2;
+}
+
+.planner-icon {
+  background: #cffafe;
+  color: #0e7490;
+}
+
+.comparison-card {
+  border-top: 4px solid #6366f1;
+}
+
+.comparison-icon {
+  background: #e0e7ff;
+  color: #4338ca;
+}
+
+.badges-card {
+  border-top: 4px solid #f59e0b;
+}
+
+.badges-icon {
+  background: #fef3c7;
+  color: #b45309;
+}
