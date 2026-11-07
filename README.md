@@ -1,11 +1,11 @@
 # FitTrack – Fitness & Workout Management Platform
 
-## Project Overview
-FitTrack is a full-stack fitness and workout management platform developed to help users manage their workouts, monitor daily fitness progress, set personal goals, analyze performance, and receive notifications.
+## 1. Project Overview
+FitTrack is a fitness and workout management platform developed using FastAPI and React. It helps users manage workouts, track fitness progress, set goals, monitor workout streaks, and earn achievement badges.
 
-## Technologies Used
+## 2. Technologies Used
 
-### Backend
+**Backend**
 - Python
 - FastAPI
 - SQLAlchemy
@@ -13,27 +13,48 @@ FitTrack is a full-stack fitness and workout management platform developed to he
 - JWT Authentication
 - Pydantic
 
-### Frontend
+**Frontend**
 - React.js
 - Vite
 - JavaScript
-- HTML5
-- CSS3
+- HTML
+- CSS
 - Axios
-- Recharts
 - React Router DOM
 
-## Key Features
+## 3. Key Features
 
-- **User Authentication:** Secure registration and login using JWT authentication.
-- **Workout Management:** Create, view, update, and delete workout records.
-- **Daily Progress Tracking:** Monitor daily workouts, calories burned, and workout duration.
-- **Fitness Goals:** Set personal fitness goals and track goal completion.
-- **Reports & Analytics:** View weekly and monthly fitness reports using interactive charts.
-- **Notifications:** Receive fitness updates, view unread notifications, mark notifications as read, and delete notifications.
-- **User Data Security:** Protected API endpoints and user-specific data access.
+- User registration and login with JWT authentication.
+- Workout creation, viewing, updating, and deletion.
+- Daily fitness progress tracking.
+- Fitness goal creation and progress monitoring.
+- Weekly and monthly progress comparison.
+- Notifications and activity reminders.
+- Workout plans and scheduling.
+- Exercise library with search and category filters.
+- Current and longest workout streak tracking.
+- Achievement badges and rewards.
+- Personalized fitness dashboard.
+- Protected routes and user-specific data.
 
-## Project Structure
+## 4. Project Modules
+
+| Module | Description |
+|---|---|
+| 1 | Authentication |
+| 2 | Workout Management |
+| 3 | Daily Progress Tracking |
+| 4 | Goal Management |
+| 5 | Reports & Analytics |
+| 6 | Notifications System |
+| 7 | Workout Plans & Scheduling |
+| 8 | Exercise Library |
+| 9 | Progress Comparison |
+| 10 | Streak Tracking |
+| 11 | Achievement Badges |
+| 12 | Personalized Dashboard |
+
+## 5. Project Structure
 
 ```text
 FitTrack/
@@ -45,40 +66,41 @@ FitTrack/
 │   │   ├── schemas.py
 │   │   ├── database.py
 │   │   ├── dependencies.py
-│   │   ├── security.py
 │   │   └── main.py
+│   │
 │   ├── venv/
 │   └── requirements.txt
 │
 ├── frontend/
 │   ├── src/
-│   │   ├── components/
-│   │   ├── context/
 │   │   ├── pages/
+│   │   ├── components/
 │   │   ├── services/
-│   │   └── App.jsx
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   │
 │   └── package.json
 │
 └── README.md
 ```
 
-## Installation & Setup
+## 6. Installation and Setup
 
 ### Backend Setup
 
-```bash
+```powershell
 cd backend
 
 python -m venv venv
 
-venv\Scripts\activate
+.\venv\Scripts\Activate
 
 pip install -r requirements.txt
 
 uvicorn app.main:app --reload
 ```
 
-Backend API: http://127.0.0.1:8000
+Backend URL: http://127.0.0.1:8000
 
 Swagger Documentation: http://127.0.0.1:8000/docs
 
@@ -86,40 +108,40 @@ Swagger Documentation: http://127.0.0.1:8000/docs
 
 Open another terminal:
 
-```bash
+```powershell
 cd frontend
 
 npm install
 
-npm install recharts
-
 npm run dev
 ```
 
-Frontend: http://localhost:5173
+Frontend URL: http://localhost:5173
 
-## Security
+## 7. Database
+
+- SQLite database.
+- SQLAlchemy ORM for database operations.
+- User-specific records and relationships.
+- Database tables for users, workouts, progress, goals, notifications, workout plans, exercises, streaks, badges, and earned badges.
+
+## 8. Security
 
 - JWT-based authentication.
 - Password hashing.
 - Protected API endpoints.
-- User-specific workout and fitness data.
-- Input validation using Pydantic.
-- Authorization checks for protected resources.
+- User-specific data access.
+- Token-based frontend route protection.
 
-## Future Enhancements
+## 9. Future Enhancements
 
-- Fitness challenges and leaderboard.
-- Wearable device integration.
+- AI-powered workout recommendations.
+- Integration with wearable fitness devices.
 - Diet and nutrition tracking.
-- Workout recommendations.
-- Fitness activity reminders.
+- Workout performance charts.
+- Social fitness challenges.
 - Mobile application support.
 
-## Author
+## 10. Conclusion
 
-Developed as a full-stack web development project using FastAPI and React.
-
-## Project Status
-
-**Completed:** Core fitness management features, including authentication, workout management, progress tracking, goals, reports, and notifications.
+FitTrack provides a centralized platform for managing workouts and monitoring fitness activities. It demonstrates full-stack development using FastAPI, React, SQLAlchemy, REST APIs, and JWT authentication.
