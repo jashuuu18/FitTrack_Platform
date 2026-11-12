@@ -24,6 +24,13 @@ import ProgressComparison from "./pages/ProgressComparison";
 import Streaks from "./pages/Streaks";
 import Badges from "./pages/Badges";
 import PersonalizedDashboard from "./pages/PersonalizedDashboard";
+import Nutrition from "./pages/Nutrition";
+import WaterTracker from "./pages/WaterTracker";
+import AISuggestions from "./pages/AISuggestions";
+import WorkoutTimer from "./pages/WorkoutTimer";
+import FitnessIntegrations from "./pages/FitnessIntegrations";
+import AdvancedAnalytics from "./pages/AdvancedAnalytics";
+import Reminders from "./pages/Reminders";
 
 
 function App() {
@@ -111,6 +118,13 @@ function App() {
                         path="/personalized-dashboard"
                         element={<PersonalizedDashboard />}
                     />
+                    <Route path="/nutrition" element={<Nutrition />} />
+                    <Route path="/water-tracker" element={<WaterTracker />} />
+                    <Route path="/ai-suggestions" element={<AISuggestions />} />
+                    <Route path="/workout-timer" element={<WorkoutTimer />} />
+                    <Route path="/fitness-integrations" element={<FitnessIntegrations />} />
+                    <Route path="/advanced-analytics" element={<AdvancedAnalytics />} />
+                    <Route path="/reminders" element={<Reminders />} />
 
                 </Routes>
 

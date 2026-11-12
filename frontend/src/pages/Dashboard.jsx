@@ -1,3 +1,4 @@
+
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import "./Dashboard.css";
@@ -14,6 +15,7 @@ function Dashboard() {
   const username =
     user?.username || user?.email?.split("@")[0] || "Fitness User";
 
+  // Sidebar Navigation
   const navigation = [
     { name: "Dashboard", path: "/dashboard", icon: "⌂" },
     { name: "Workouts", path: "/workouts", icon: "🏋️" },
@@ -26,9 +28,17 @@ function Dashboard() {
     { name: "Progress Comparison", path: "/progress-comparison", icon: "📉" },
     { name: "Streak Tracking", path: "/streaks", icon: "🔥" },
     { name: "Achievement Badges", path: "/badges", icon: "🏆" },
-    { name: "Personalized Dashboard", path: "/personalized-dashboard", icon: "🌟" }
+    { name: "Personalized Dashboard", path: "/personalized-dashboard", icon: "🌟" },
+    { name: "Nutrition & Meal Tracking", path: "/nutrition", icon: "🥗" },
+    { name: "Water Intake Tracker", path: "/water-tracker", icon: "💧" },
+    { name: "AI Workout Suggestions", path: "/ai-suggestions", icon: "🤖" },
+    { name: "Workout Timer", path: "/workout-timer", icon: "⏱️" },
+    { name: "Fitness Integrations", path: "/fitness-integrations", icon: "🔗" },
+    { name: "Advanced Analytics", path: "/advanced-analytics", icon: "📊" },
+    { name: "Reminders & Alerts", path: "/reminders", icon: "⏰"}
   ];
 
+  // Dashboard Feature Cards
   const features = [
     {
       number: "01",
@@ -150,9 +160,87 @@ function Dashboard() {
       icon: "🌟",
       cardClass: "personalized-card",
       iconClass: "personalized-icon"
+    },
+    {
+      number: "12",
+      title: "Nutrition & Meal Tracking",
+      description:
+        "Track your daily meals, calories, protein, carbohydrates, and fats to support your fitness goals.",
+      path: "/nutrition",
+      link: "Track Your Nutrition",
+      icon: "🥗",
+      cardClass: "nutrition-card",
+      iconClass: "nutrition-icon"
+    },
+    {
+      number: "13",
+      title: "Water Intake Tracker",
+      description:
+        "Track your daily water consumption, monitor hydration progress, and stay on top of your daily water goal.",
+      path: "/water-tracker",
+      link: "Track Water Intake",
+      icon: "💧",
+      cardClass: "water-card",
+      iconClass: "water-icon"
+    },
+    {
+      number: "14",
+      title: "AI Workout Suggestions",
+      description:
+        "Get personalized workout recommendations based on your fitness goals, recent workout activity, and current streak.",
+      path: "/ai-suggestions",
+      link: "Get Workout Suggestions",
+      icon: "🤖",
+      cardClass: "ai-suggestions-card",
+      iconClass: "ai-suggestions-icon"
+    },
+    {
+      number: "15",
+      title: "Workout Timer",
+      description:
+        "Start, pause, resume, and track your workout sessions in real time. Save completed sessions and view your workout history.",
+      path: "/workout-timer",
+      link: "Start Workout Timer",
+      icon: "⏱️",
+      cardClass: "timer-card",
+      iconClass: "timer-icon"
+    },
+    {
+      number: "16",
+      title: "Fitness Integrations",
+      description:
+        "Manage connected fitness providers and import external activities from supported fitness platforms.",
+      path: "/fitness-integrations",
+      link: "Manage Fitness Integrations",
+      icon: "🔗",
+      cardClass: "integrations-card",
+      iconClass: "integrations-icon"
+    },
+    {
+      number: "17",
+      title: "Advanced Analytics",
+      description:
+        "Explore detailed fitness, nutrition, hydration, and workout reports with interactive charts and date filters.",
+      path: "/advanced-analytics",
+      link: "Explore Advanced Analytics",
+      icon: "📊",
+      cardClass: "advanced-analytics-card",
+      iconClass: "advanced-analytics-icon"
+    },
+    {
+      number: "18",
+      title: "Reminders & Alerts",
+      description:
+        "Schedule workout, water intake, meal, and fitness goal reminders. Receive in-app notifications when reminders become due.",
+      path: "/reminders",
+      link: "Manage Reminders",
+      icon: "⏰",
+      cardClass: "reminders-card",
+      iconClass: "reminders-icon"
     }
   ];
 
+  // Quick Actions
   const quickActions = [
     {
       title: "Add Workout",
@@ -219,6 +307,48 @@ function Dashboard() {
       description: "View your complete fitness summary",
       path: "/personalized-dashboard",
       icon: "🌟"
+    },
+    {
+      title: "Track Nutrition",
+      description: "Record meals and monitor daily macros",
+      path: "/nutrition",
+      icon: "🥗"
+    },
+    {
+      title: "Track Water Intake",
+      description: "Monitor your daily hydration",
+      path: "/water-tracker",
+      icon: "💧"
+    },
+    {
+      title: "AI Workout Suggestions",
+      description: "Discover personalized exercises",
+      path: "/ai-suggestions",
+      icon: "🤖"
+    },
+    {
+      title: "Workout Timer",
+      description: "Start and track live workout sessions",
+      path: "/workout-timer",
+      icon: "⏱️"
+    },
+    {
+      title: "Fitness Integrations",
+      description: "Connect providers and import fitness activities",
+      path: "/fitness-integrations",
+      icon: "🔗"
+    },
+    {
+      title: "Advanced Analytics",
+      description: "Explore detailed fitness statistics and charts",
+      path: "/advanced-analytics",
+      icon: "📊"
+    },
+    {
+      title: "Reminders & Alerts",
+      description: "Create and manage your fitness reminders",
+      path: "/reminders",
+      icon: "⏰"
     }
   ];
 
@@ -227,10 +357,8 @@ function Dashboard() {
 
       {/* Sidebar */}
       <aside className="fittrack-sidebar">
-
         <div className="fittrack-brand">
           <div className="brand-icon">F</div>
-
           <div>
             <h2>FitTrack</h2>
             <span>FITNESS PLATFORM</span>
@@ -255,7 +383,6 @@ function Dashboard() {
         </nav>
 
         <div className="sidebar-bottom">
-
           <div className="sidebar-user">
             <div className="user-avatar">
               {username.charAt(0).toUpperCase()}
@@ -274,7 +401,6 @@ function Dashboard() {
           >
             <span>↪</span> Logout
           </button>
-
         </div>
       </aside>
 
@@ -283,7 +409,6 @@ function Dashboard() {
 
         {/* Top Header */}
         <header className="fittrack-topbar">
-
           <div>
             <span className="topbar-subtitle">
               FITNESS OVERVIEW
@@ -292,7 +417,6 @@ function Dashboard() {
           </div>
 
           <div className="topbar-profile">
-
             <div className="topbar-avatar">
               {username.charAt(0).toUpperCase()}
             </div>
@@ -301,15 +425,12 @@ function Dashboard() {
               <strong>{username}</strong>
               <span>Welcome back!</span>
             </div>
-
           </div>
         </header>
 
         {/* Welcome Banner */}
         <section className="fittrack-hero">
-
           <div className="hero-content">
-
             <span className="hero-tag">
               YOUR FITNESS JOURNEY
             </span>
@@ -324,7 +445,6 @@ function Dashboard() {
             <Link to="/workouts" className="hero-button">
               Start a Workout <span>→</span>
             </Link>
-
           </div>
 
           <div className="hero-decoration" aria-hidden="true">
@@ -332,30 +452,25 @@ function Dashboard() {
             <div className="hero-circle circle-two"></div>
             <div className="hero-figure">💪</div>
           </div>
-
         </section>
 
         {/* Section Heading */}
         <section className="dashboard-section-heading">
-
           <div>
             <h2>Your Fitness Hub</h2>
             <p>
               Everything you need to manage your fitness journey.
             </p>
           </div>
-
         </section>
 
         {/* Feature Cards */}
         <section className="fittrack-feature-grid">
-
           {features.map((feature) => (
             <article
               className={`fittrack-feature-card ${feature.cardClass}`}
               key={feature.path}
             >
-
               <div className="feature-card-top">
                 <div className={`feature-icon ${feature.iconClass}`}>
                   {feature.icon}
@@ -373,31 +488,25 @@ function Dashboard() {
               <Link to={feature.path} className="feature-link">
                 {feature.link} <span>→</span>
               </Link>
-
             </article>
           ))}
-
         </section>
 
         {/* Quick Actions */}
         <section className="quick-actions-section">
-
           <div className="dashboard-section-heading">
-
             <div>
               <h2>Quick Actions</h2>
               <p>Choose what you want to do next.</p>
             </div>
-
           </div>
 
           <div className="quick-actions-grid">
-
             {quickActions.map((action) => (
               <Link
                 to={action.path}
                 className="quick-action"
-                key={action.path}
+                key={action.title}
               >
                 <span className="quick-action-icon">
                   {action.icon}
@@ -411,7 +520,6 @@ function Dashboard() {
                 <span className="quick-arrow">→</span>
               </Link>
             ))}
-
           </div>
         </section>
 
