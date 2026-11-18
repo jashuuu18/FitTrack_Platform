@@ -31,6 +31,15 @@ import WorkoutTimer from "./pages/WorkoutTimer";
 import FitnessIntegrations from "./pages/FitnessIntegrations";
 import AdvancedAnalytics from "./pages/AdvancedAnalytics";
 import Reminders from "./pages/Reminders";
+import DietPlans from "./pages/DietPlans";
+import DietPlanDetails from "./pages/DietPlanDetails";
+import MyDietPlans from "./pages/MyDietPlans";
+import Subscriptions from "./pages/Subscriptions";
+import NutritionistConsultations from "./pages/NutritionistConsultations";
+import DietRecommendations from "./pages/DietRecommendations";
+import DietReminders from "./pages/DietReminders";
+import DietNotifications from "./pages/DietNotifications";
+import DoctorConsultations from "./pages/DoctorConsultations";
 
 
 function App() {
@@ -125,7 +134,16 @@ function App() {
                     <Route path="/fitness-integrations" element={<FitnessIntegrations />} />
                     <Route path="/advanced-analytics" element={<AdvancedAnalytics />} />
                     <Route path="/reminders" element={<Reminders />} />
-
+                    <Route path="/diet-plans" element={<DietPlans />} />
+                    <Route path="/diet-plans/:id" element={<DietPlanDetails />} />
+                    <Route path="/my-diet-plans" element={<MyDietPlans />} />
+                    <Route path="/subscriptions" element={<Subscriptions />} />
+                    <Route path="/nutritionist-consultations" element={<NutritionistConsultations />} />
+                    <Route path="/diet-recommendations" element={<DietRecommendations />} />
+                    <Route path="/diet-reminders" element={<DietReminders />} />
+                    <Route path="/diet-notifications" element={<DietNotifications />} />
+                    <Route path="/doctor-consultations" element={<DoctorConsultations />} />
+                    
                 </Routes>
 
             </BrowserRouter>

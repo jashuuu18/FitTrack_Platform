@@ -35,7 +35,16 @@ function Dashboard() {
     { name: "Workout Timer", path: "/workout-timer", icon: "⏱️" },
     { name: "Fitness Integrations", path: "/fitness-integrations", icon: "🔗" },
     { name: "Advanced Analytics", path: "/advanced-analytics", icon: "📊" },
-    { name: "Reminders & Alerts", path: "/reminders", icon: "⏰"}
+    { name: "Reminders & Alerts", path: "/reminders", icon: "⏰" },
+    { name: "Diet Plans", path: "/diet-plans", icon: "🥗" },
+    { name: "My Diet Plans", path: "/my-diet-plans", icon: "🍽️" },
+    { name: "Subscriptions", path: "/subscriptions", icon: "💳" },
+    { name: "Nutritionist Consultation", path: "/nutritionist-consultations", icon: "👩‍⚕️" },
+    { name: "Diet Recommendations", path: "/diet-recommendations", icon: "🥑" },
+    { name: "Diet Reminders", path: "/diet-reminders", icon: "⏰" },
+    { name: "Diet Notifications", path: "/diet-notifications", icon: "🔔" },
+    { name: "Doctor Support", path: "/doctor-consultations", icon: "👨‍⚕️" }
+
   ];
 
   // Dashboard Feature Cards
@@ -237,120 +246,98 @@ function Dashboard() {
       icon: "⏰",
       cardClass: "reminders-card",
       iconClass: "reminders-icon"
-    }
+    },
+    {
+      number: "19",
+      title: "Diet Plans",
+      description:
+        "Explore structured diet plans, check daily calorie requirements, and select a plan that supports your nutrition goals.",
+      path: "/diet-plans",
+      link: "Explore Diet Plans",
+      icon: "🥗",
+      cardClass: "diet-plans-card",
+      iconClass: "diet-plans-icon"
+    },
+    {
+      number: "20",
+      title: "My Assigned Diet Plans",
+      description:
+        "View your selected diet plans, check their duration and calorie targets, and manage your nutrition journey.",
+      path: "/my-diet-plans",
+      link: "View My Diet Plans",
+      icon: "🍽️",
+      cardClass: "my-diet-plans-card",
+      iconClass: "my-diet-plans-icon"
+    },
+    {
+      number: "21",
+      title: "Subscriptions",
+      description:
+        "Explore Free, Premium, and Pro membership plans, upgrade or downgrade your subscription, and view your subscription history.",
+      path: "/subscriptions",
+      link: "Explore Subscription Plans",
+      icon: "💳",
+      cardClass: "subscriptions-card",
+      iconClass: "subscriptions-icon"
+    },
+    {
+      number: "22",
+      title: "Nutritionist Consultation",
+      description:
+        "Connect with nutrition professionals, book consultation sessions, and manage your upcoming and previous bookings.",
+      path: "/nutritionist-consultations",
+      link: "Book a Consultation",
+      icon: "👩‍⚕️",
+      cardClass: "consultations-card",
+      iconClass: "consultations-icon"
+    },
+    {
+      number: "23",
+      title: "Diet Recommendations",
+      description: "Get smart nutrition suggestions based on your fitness goals and daily meals.",
+      path: "/diet-recommendations",
+      link: "View Recommendations",
+      icon: "🥑",
+      cardClass: "diet-recommendations-card",
+      iconClass: "diet-recommendations-icon"
+    },
+    {
+      number: "24",
+      title: "Nutrition Reminders",
+      description:
+        "Schedule reminders for meals, workouts, and water intake.",
+      path: "/diet-reminders",
+      link: "Manage Diet Reminders",
+      icon: "⏰",
+      cardClass: "diet-reminders-card",
+      iconClass: "diet-reminders-icon"
+    },
+    {
+      number: "25",
+      title: "Diet Notifications",
+      description:
+         "View meal reminders, subscription alerts, and consultation notifications.",
+      path: "/diet-notifications",
+      link: "View Diet Notifications",
+      icon: "🔔",
+      cardClass: "diet-notifications-card",
+      iconClass: "diet-notifications-icon"
+    },
+    {
+      number: "26",
+      title: "Doctor Support",
+      description: 
+        "Find doctors, book appointments and manage your health consultations.",
+      path: "/doctor-consultations",
+      link: "Browse Doctors",
+      icon: "👨‍⚕️",
+      cardClass: "doctor-consultations-card",
+      iconClass: "doctor-consultations-icon"
+    },
+
   ];
 
-  // Quick Actions
-  const quickActions = [
-    {
-      title: "Add Workout",
-      description: "Record a new session",
-      path: "/workouts",
-      icon: "＋"
-    },
-    {
-      title: "Check Progress",
-      description: "Review your daily activity",
-      path: "/progress",
-      icon: "↗"
-    },
-    {
-      title: "Update Goals",
-      description: "Track your targets",
-      path: "/goals",
-      icon: "◎"
-    },
-    {
-      title: "View Reports",
-      description: "Analyze your fitness performance",
-      path: "/reports",
-      icon: "📊"
-    },
-    {
-      title: "View Notifications",
-      description: "Check your latest updates",
-      path: "/notifications",
-      icon: "🔔"
-    },
-    {
-      title: "Schedule Workout",
-      description: "Plan your upcoming workouts",
-      path: "/workout-plans",
-      icon: "📅"
-    },
-    {
-      title: "Explore Exercises",
-      description: "Browse the exercise library",
-      path: "/exercises",
-      icon: "💪"
-    },
-    {
-      title: "Compare Progress",
-      description: "Compare weekly and monthly results",
-      path: "/progress-comparison",
-      icon: "📉"
-    },
-    {
-      title: "Track Workout Streak",
-      description: "Check your current and longest streak",
-      path: "/streaks",
-      icon: "🔥"
-    },
-    {
-      title: "Achievement Badges",
-      description: "View your earned fitness rewards",
-      path: "/badges",
-      icon: "🏆"
-    },
-    {
-      title: "Personalized Dashboard",
-      description: "View your complete fitness summary",
-      path: "/personalized-dashboard",
-      icon: "🌟"
-    },
-    {
-      title: "Track Nutrition",
-      description: "Record meals and monitor daily macros",
-      path: "/nutrition",
-      icon: "🥗"
-    },
-    {
-      title: "Track Water Intake",
-      description: "Monitor your daily hydration",
-      path: "/water-tracker",
-      icon: "💧"
-    },
-    {
-      title: "AI Workout Suggestions",
-      description: "Discover personalized exercises",
-      path: "/ai-suggestions",
-      icon: "🤖"
-    },
-    {
-      title: "Workout Timer",
-      description: "Start and track live workout sessions",
-      path: "/workout-timer",
-      icon: "⏱️"
-    },
-    {
-      title: "Fitness Integrations",
-      description: "Connect providers and import fitness activities",
-      path: "/fitness-integrations",
-      icon: "🔗"
-    },
-    {
-      title: "Advanced Analytics",
-      description: "Explore detailed fitness statistics and charts",
-      path: "/advanced-analytics",
-      icon: "📊"
-    },
-    {
-      title: "Reminders & Alerts",
-      description: "Create and manage your fitness reminders",
-      path: "/reminders",
-      icon: "⏰"
-    }
-  ];
+  
 
   return (
     <div className="fittrack-layout">
@@ -490,37 +477,6 @@ function Dashboard() {
               </Link>
             </article>
           ))}
-        </section>
-
-        {/* Quick Actions */}
-        <section className="quick-actions-section">
-          <div className="dashboard-section-heading">
-            <div>
-              <h2>Quick Actions</h2>
-              <p>Choose what you want to do next.</p>
-            </div>
-          </div>
-
-          <div className="quick-actions-grid">
-            {quickActions.map((action) => (
-              <Link
-                to={action.path}
-                className="quick-action"
-                key={action.title}
-              >
-                <span className="quick-action-icon">
-                  {action.icon}
-                </span>
-
-                <span>
-                  <strong>{action.title}</strong>
-                  <small>{action.description}</small>
-                </span>
-
-                <span className="quick-arrow">→</span>
-              </Link>
-            ))}
-          </div>
         </section>
 
         {/* Footer */}

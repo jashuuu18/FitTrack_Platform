@@ -1,0 +1,147 @@
+.diet-details-page {
+  min-height: 100vh;
+  padding: 30px;
+  background: #f5f7fb;
+}
+
+.diet-back-button {
+  border: none;
+  background: transparent;
+  color: #475569;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.diet-details-card {
+  max-width: 750px;
+  margin: 20px auto;
+  padding: 40px;
+  text-align: center;
+  background: white;
+  border: 1px solid #e7edf4;
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
+}
+
+.diet-details-icon {
+  font-size: 55px;
+  margin-bottom: 12px;
+}
+
+.diet-details-label {
+  color: #16a34a;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.diet-details-card h1 {
+  color: #172033;
+  font-size: 29px;
+  margin: 12px 0;
+}
+
+.diet-details-goal {
+  display: inline-block;
+  padding: 7px 13px;
+  border-radius: 20px;
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.diet-details-description {
+  max-width: 550px;
+  margin: 22px auto;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.diet-details-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.diet-details-stats div {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #f8fafc;
+  border-radius: 12px;
+}
+
+.diet-details-stats strong {
+  color: #16a34a;
+  font-size: 25px;
+}
+
+.diet-details-stats span {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.diet-assign-button,
+.diet-my-plans-button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.diet-assign-button {
+  background: #16a34a;
+  color: white;
+}
+
+.diet-assign-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.diet-my-plans-button {
+  margin-top: 12px;
+  background: #172033;
+  color: white;
+}
+
+.diet-details-error,
+.diet-details-success {
+  padding: 12px;
+  margin: 15px 0;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.diet-details-error {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.diet-details-success {
+  background: #dcfce7;
+  color: #166534;
+}
+
+@media (max-width: 600px) {
+  .diet-details-page {
+    padding: 18px;
+  }
+
+  .diet-details-card {
+    padding: 25px 18px;
+  }
+
+  .diet-details-card h1 {
+    font-size: 23px;
+  }
+}

@@ -1,0 +1,304 @@
+
+.consultation-page {
+  min-height: 100vh;
+  padding: 35px;
+  background: #f4f7f5;
+  color: #183b2b;
+}
+
+.consultation-header {
+  margin-bottom: 28px;
+}
+
+.consultation-eyebrow {
+  color: #2e7955;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.consultation-header h1 {
+  margin: 10px 0;
+  font-size: 32px;
+}
+
+.consultation-header p,
+.consultation-section-heading p {
+  color: #718078;
+}
+
+.consultation-success,
+.consultation-error {
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.consultation-success {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.consultation-error {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.consultation-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.consultation-section-heading h2 {
+  margin-bottom: 6px;
+}
+
+.consultation-section-heading p {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+.nutritionist-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.nutritionist-card {
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid #dce8e0;
+  border-radius: 16px;
+  box-shadow: 0 5px 18px rgba(24, 59, 43, 0.05);
+}
+
+.nutritionist-avatar {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  background: #dcfce7;
+  font-size: 28px;
+}
+
+.nutritionist-card h3 {
+  margin: 0 0 7px;
+}
+
+.nutritionist-specialization {
+  color: #2e7955;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.nutritionist-details {
+  padding: 12px 0;
+  margin: 14px 0;
+  border-top: 1px solid #e7eee9;
+  border-bottom: 1px solid #e7eee9;
+}
+
+.nutritionist-details p,
+.nutritionist-bio {
+  color: #65766b;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.nutritionist-bio {
+  min-height: 62px;
+}
+
+.consultation-book-button,
+.consultation-form-actions button {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 9px;
+  background: #2e7955;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.consultation-book-button {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.consultation-book-button:hover,
+.consultation-form-actions button:hover {
+  background: #245f43;
+}
+
+.consultation-form-section {
+  margin-top: 30px;
+  padding: 26px;
+  background: #ffffff;
+  border: 1px solid #dce8e0;
+  border-radius: 16px;
+}
+
+.consultation-form-section > p {
+  color: #65766b;
+}
+
+.consultation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 650px;
+  margin-top: 20px;
+}
+
+.consultation-form label {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.consultation-form input,
+.consultation-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d5e1d9;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #183b2b;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+.consultation-form input:focus,
+.consultation-form textarea:focus {
+  outline: 2px solid #2e7955;
+  border-color: #2e7955;
+}
+
+.consultation-form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.consultation-form-actions .consultation-close-button {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.consultation-form-actions .consultation-close-button:hover {
+  background: #d1d5db;
+}
+
+.my-consultations-section {
+  margin-top: 40px;
+}
+
+.consultation-booking-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.consultation-booking-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid #dce8e0;
+  border-radius: 14px;
+}
+
+.consultation-booking-card h3 {
+  margin-top: 0;
+}
+
+.consultation-booking-card p {
+  color: #65766b;
+  font-size: 14px;
+}
+
+.booking-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.consultation-status {
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #e5e7eb;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.consultation-status.booked {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.consultation-status.cancelled {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.consultation-status.completed {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.consultation-cancel-button {
+  padding: 9px 13px;
+  border: 1px solid #ef4444;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #dc2626;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.consultation-cancel-button:hover {
+  background: #fee2e2;
+}
+
+.consultation-empty {
+  padding: 22px;
+  background: #ffffff;
+  border-radius: 12px;
+  color: #718078;
+}
+
+@media (max-width: 950px) {
+  .nutritionist-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .consultation-page {
+    padding: 20px;
+  }
+
+  .nutritionist-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .consultation-booking-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .booking-actions {
+    align-items: flex-start;
+  }
+
+  .consultation-header h1 {
+    font-size: 26px;
+  }
+}

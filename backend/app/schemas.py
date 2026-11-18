@@ -1,6 +1,6 @@
 
 from datetime import datetime, date as DateType
-from typing import Literal
+from typing import Literal, List
 
 from pydantic import (
     BaseModel,
@@ -456,5 +456,155 @@ class ReminderResponse(BaseModel):
     is_active: bool
     is_sent: bool
     created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+#=============================
+# DIET PLAN SCHEMAS
+#=============================
+class DietPlanResponse(BaseModel):
+    id: int
+    title: str
+    description: str
+    goal_type: str
+    daily_calories: int
+    duration: int
+    created_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
+
+
+class UserDietPlanResponse(BaseModel):
+    id: int
+    user_id: int
+    diet_plan_id: int
+    assigned_at: datetime
+    is_active: bool
+    diet_plan: DietPlanResponse
+
+    model_config = ConfigDict(from_attributes=True)
+
+#=============================
+# SUBSCRIPTION SCHEMAS
+#=============================
+class SubscriptionResponse(BaseModel):
+    id: int
+    name: str
+    price: float
+    duration: int
+    description: str
+    features: List[str]
+    is_active: bool
+
+    model_config = ConfigDict(from_attributes=True)
+
+
+class UserSubscriptionResponse(BaseModel):
+    id: int
+    user_id: int
+    subscription_id: int
+    start_date: datetime
+    end_date: datetime
+    status: str
+    subscription: SubscriptionResponse
+
+    model_config = ConfigDict(from_attributes=True)
+
+#=============================
+# NUTRITIONIST SCHEMAS
+#=============================
+class NutritionistResponse(BaseModel):
+    id: int
+    full_name: str
+    qualification: str
+    specialization: str
+    experience_years: int
+    consultation_fee: float
+    bio: str
+    is_available: bool
+
+    model_config = ConfigDict(from_attributes=True)
+
+
+class ConsultationCreate(BaseModel):
+    nutritionist_id: int
+    scheduled_at: datetime
+    notes: str | None = None
+
+
+class ConsultationResponse(BaseModel):
+    id: int
+    user_id: int
+    nutritionist_id: int
+    scheduled_at: datetime
+    notes: str | None = None
+    status: str
+    nutritionist: NutritionistResponse
+
+    model_config = ConfigDict(from_attributes=True)
+
+#=============================
+# DIET RECOMMENDATION SCHEMAS
+#============================= 
+
+class DietRecommendationRequest(BaseModel):
+    goal_type: str
+    activity_level: str
+    daily_calorie_target: int = Field(gt=0, le=10000)
+
+    model_config = ConfigDict(
+        str_strip_whitespace=True
+    )
+
+
+class DietRecommendationResponse(BaseModel):
+    goal_type: str
+    activity_level: str
+    daily_calorie_target: int
+
+    calories_consumed: float
+    calories_remaining: float
+
+    protein_consumed: float
+    protein_target: float
+
+    carbs_consumed: float
+    carbs_target: float
+
+    fats_consumed: float
+    fats_target: float
+
+    recommendations: List[str]
+    food_suggestions: List[str]
+    activity_tip: str
+#=============================
+# DOCTOR SCHEMAS 
+#=============================
+class DoctorResponse(BaseModel):
+    id: int
+    full_name: str
+    qualification: str
+    specialization: str
+    experience_years: int
+    consultation_fee: float
+    bio: str | None = None
+    is_available: bool
+
+    model_config = ConfigDict(from_attributes=True)
+
+
+class DoctorAppointmentCreate(BaseModel):
+    doctor_id: int
+    scheduled_at: datetime
+    reason: str | None = None
+
+
+class DoctorAppointmentResponse(BaseModel):
+    id: int
+    user_id: int
+    doctor_id: int
+    scheduled_at: datetime
+    reason: str | None = None
+    status: str
+    doctor: DoctorResponse
 
     model_config = ConfigDict(from_attributes=True)

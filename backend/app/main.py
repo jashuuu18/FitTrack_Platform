@@ -26,6 +26,11 @@ from app.routers import (
     fitness_integrations,
     advanced_analytics,
     reminders,
+    diet_plans,
+    subscriptions,
+    nutritionist_consultations,
+    diet_recommendations,
+    doctor_appointments,
 )
 
 
@@ -74,7 +79,11 @@ app.include_router(workout_sessions.router)
 app.include_router(fitness_integrations.router)
 app.include_router(advanced_analytics.router)
 app.include_router(reminders.router)
-
+app.include_router(diet_plans.router)
+app.include_router(subscriptions.router)
+app.include_router(nutritionist_consultations.router)
+app.include_router(diet_recommendations.router)
+app.include_router(doctor_appointments.router)
 
 # Initialize reminder scheduler
 reminder_scheduler = BackgroundScheduler(timezone="UTC")

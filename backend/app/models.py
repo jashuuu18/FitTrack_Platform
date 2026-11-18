@@ -13,6 +13,7 @@ from sqlalchemy import (
     UniqueConstraint
 )
 from sqlalchemy.sql import func
+from sqlalchemy.orm import relationship
 
 from app.database import Base
 
@@ -693,3 +694,255 @@ class Reminder(Base):
         server_default=func.now(),
         nullable=False
     )
+#=============================
+# DIET PLAN MODEL
+#=============================
+class DietPlan(Base):
+    __tablename__ = "diet_plans"
+
+    __table_args__ = (
+        CheckConstraint(
+            "goal_type IN ('Weight Loss', 'Muscle Gain', 'Maintenance')",
+            name="check_diet_plan_goal_type"
+        ),
+        CheckConstraint(
+            "daily_calories > 0",
+            name="check_diet_plan_calories"
+        ),
+        CheckConstraint(
+            "duration > 0",
+            name="check_diet_plan_duration"
+        ),
+    )
+
+    id = Column(Integer, primary_key=True, index=True)
+    title = Column(String(150), nullable=False)
+    description = Column(Text, nullable=False)
+    goal_type = Column(String(30), nullable=False)
+    daily_calories = Column(Integer, nullable=False)
+    duration = Column(Integer, nullable=False)
+
+    created_at = Column(
+        DateTime(timezone=True),
+        server_default=func.now(),
+        nullable=False
+    )
+
+
+class UserDietPlan(Base):
+    __tablename__ = "user_diet_plans"
+
+    id = Column(Integer, primary_key=True, index=True)
+
+    user_id = Column(
+        Integer,
+        ForeignKey("users.id"),
+        nullable=False,
+        index=True
+    )
+
+    diet_plan_id = Column(
+        Integer,
+        ForeignKey("diet_plans.id"),
+        nullable=False,
+        index=True
+    )
+    diet_plan = relationship("DietPlan")
+
+    assigned_at = Column(
+        DateTime(timezone=True),
+        server_default=func.now(),
+        nullable=False
+    )
+
+    is_active = Column(Boolean, nullable=False, default=True)
+#=============================
+# SUBSCRIPTION MODEL
+#=============================
+class Subscription(Base):
+    __tablename__ = "subscriptions"
+
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String(50), unique=True, nullable=False)
+    price = Column(Float, nullable=False, default=0)
+    duration = Column(Integer, nullable=False)
+    description = Column(Text, nullable=False)
+    features = Column(Text, nullable=False)
+    is_active = Column(Boolean, default=True, nullable=False)
+
+    created_at = Column(
+        DateTime(timezone=True),
+        server_default=func.now(),
+        nullable=False
+    )
+
+
+class UserSubscription(Base):
+    __tablename__ = "user_subscriptions"
+
+    id = Column(Integer, primary_key=True, index=True)
+
+    user_id = Column(
+        Integer,
+        ForeignKey("users.id"),
+        nullable=False,
+        index=True
+    )
+
+    subscription_id = Column(
+        Integer,
+        ForeignKey("subscriptions.id"),
+        nullable=False,
+        index=True
+    )
+
+    start_date = Column(DateTime(timezone=True), nullable=False)
+    end_date = Column(DateTime(timezone=True), nullable=False)
+
+    status = Column(
+        String(20),
+        nullable=False,
+        default="ACTIVE"
+    )
+
+    created_at = Column(
+        DateTime(timezone=True),
+        server_default=func.now(),
+        nullable=False
+    )
+
+    subscription = relationship("Subscription")
+#=============================
+# NUTRITIONIST MODEL
+#=============================
+class Nutritionist(Base):
+    __tablename__ = "nutritionists"
+
+    id = Column(Integer, primary_key=True, index=True)
+
+    full_name = Column(String(150), nullable=False)
+    qualification = Column(String(200), nullable=False)
+    specialization = Column(String(200), nullable=False)
+    experience_years = Column(Integer, nullable=False, default=0)
+    consultation_fee = Column(Float, nullable=False, default=0)
+    bio = Column(Text, nullable=False)
+    is_available = Column(Boolean, nullable=False, default=True)
+
+    created_at = Column(
+        DateTime(timezone=True),
+        server_default=func.now(),
+        nullable=False
+    )
+
+
+class NutritionistConsultation(Base):
+    __tablename__ = "nutritionist_consultations"
+
+    __table_args__ = (
+        CheckConstraint(
+            "status IN ('BOOKED', 'CANCELLED', 'COMPLETED')",
+            name="check_nutritionist_consultation_status"
+        ),
+    )
+
+    id = Column(Integer, primary_key=True, index=True)
+
+    user_id = Column(
+        Integer,
+        ForeignKey("users.id"),
+        nullable=False,
+        index=True
+    )
+
+    nutritionist_id = Column(
+        Integer,
+        ForeignKey("nutritionists.id"),
+        nullable=False,
+        index=True
+    )
+
+    scheduled_at = Column(DateTime(timezone=True), nullable=False)
+
+    notes = Column(Text, nullable=True)
+
+    status = Column(
+        String(20),
+        nullable=False,
+        default="BOOKED"
+    )
+
+    created_at = Column(
+        DateTime(timezone=True),
+        server_default=func.now(),
+        nullable=False
+    )
+
+    nutritionist = relationship("Nutritionist")
+#=============================
+# DOCTOR MODEL
+#=============================
+class Doctor(Base):
+    __tablename__ = "doctors"
+
+    id = Column(Integer, primary_key=True, index=True)
+
+    full_name = Column(String(150), nullable=False)
+    qualification = Column(String(150), nullable=False)
+    specialization = Column(String(150), nullable=False)
+
+    experience_years = Column(Integer, nullable=False, default=0)
+    consultation_fee = Column(Float, nullable=False, default=0)
+
+    bio = Column(Text, nullable=True)
+    is_available = Column(Boolean, nullable=False, default=True)
+
+    created_at = Column(
+        DateTime,
+        server_default=func.now(),
+        nullable=False
+    )
+
+
+class DoctorAppointment(Base):
+    __tablename__ = "doctor_appointments"
+
+    __table_args__ = (
+        CheckConstraint(
+            "status IN ('BOOKED', 'CANCELLED', 'COMPLETED')",
+            name="check_doctor_appointment_status"
+        ),
+    )
+
+    id = Column(Integer, primary_key=True, index=True)
+
+    user_id = Column(
+        Integer,
+        ForeignKey("users.id"),
+        nullable=False,
+        index=True
+    )
+
+    doctor_id = Column(
+        Integer,
+        ForeignKey("doctors.id"),
+        nullable=False,
+        index=True
+    )
+
+    scheduled_at = Column(DateTime, nullable=False, index=True)
+
+    reason = Column(Text, nullable=True)
+
+    status = Column(
+        String(20),
+        nullable=False,
+        default="BOOKED"
+    )
+
+    created_at = Column(
+        DateTime,
+        server_default=func.now(),
+        nullable=False
+    )
+
+    doctor = relationship("Doctor")

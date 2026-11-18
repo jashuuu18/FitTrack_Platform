@@ -1,0 +1,266 @@
+
+.subscription-page {
+  min-height: 100vh;
+  padding: 35px;
+  background: #f4f7f5;
+  color: #183b2b;
+}
+
+.subscription-header {
+  margin-bottom: 28px;
+}
+
+.subscription-eyebrow {
+  color: #2e7955;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.subscription-header h1 {
+  margin: 10px 0;
+  font-size: 32px;
+}
+
+.subscription-header p,
+.plan-description {
+  color: #718078;
+  line-height: 1.6;
+}
+
+.subscription-success,
+.subscription-error {
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.subscription-success {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.subscription-error {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.current-subscription {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 24px;
+  margin-bottom: 30px;
+  background: #ffffff;
+  border: 1px solid #dce8e0;
+  border-radius: 16px;
+}
+
+.current-subscription h2 {
+  margin: 8px 0;
+}
+
+.current-subscription p {
+  color: #718078;
+}
+
+.current-plan-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.subscription-plans {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+
+.subscription-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 24px;
+  background: #ffffff;
+  border: 1px solid #dce8e0;
+  border-radius: 18px;
+  box-shadow: 0 5px 18px rgba(24, 59, 43, 0.05);
+}
+
+.subscription-featured {
+  border: 2px solid #2e7955;
+}
+
+.popular-label {
+  position: absolute;
+  top: -13px;
+  right: 20px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #2e7955;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.subscription-card h2 {
+  margin: 5px 0;
+  font-size: 23px;
+}
+
+.plan-description {
+  min-height: 52px;
+  font-size: 14px;
+}
+
+.plan-price {
+  margin: 18px 0;
+}
+
+.plan-price strong {
+  font-size: 32px;
+  color: #2e7955;
+}
+
+.plan-price span {
+  color: #718078;
+  font-size: 13px;
+}
+
+.plan-features {
+  flex: 1;
+  padding: 0;
+  margin: 10px 0 25px;
+  list-style: none;
+}
+
+.plan-features li {
+  display: flex;
+  gap: 10px;
+  margin: 14px 0;
+  color: #53645a;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.feature-check {
+  color: #2e7955;
+  font-weight: 900;
+}
+
+.subscribe-button {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 9px;
+  background: #2e7955;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.subscribe-button:hover:not(:disabled) {
+  background: #245f43;
+}
+
+.subscribe-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.current-plan-button {
+  background: #dcefe3;
+  color: #245f43;
+}
+
+.subscription-history {
+  margin-top: 40px;
+  padding: 25px;
+  background: #ffffff;
+  border: 1px solid #dce8e0;
+  border-radius: 16px;
+}
+
+.subscription-history h2 {
+  margin-top: 0;
+}
+
+.history-table-wrapper {
+  overflow-x: auto;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.history-table th,
+.history-table td {
+  padding: 14px;
+  border-bottom: 1px solid #e7eee9;
+  font-size: 14px;
+}
+
+.history-table th {
+  color: #718078;
+  font-weight: 700;
+}
+
+.history-status {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background: #e5e7eb;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.history-status.active {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.history-status.expired {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.history-status.cancelled {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.empty-history {
+  color: #718078;
+}
+
+@media (max-width: 950px) {
+  .subscription-plans {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .subscription-page {
+    padding: 20px;
+  }
+
+  .subscription-plans {
+    grid-template-columns: 1fr;
+  }
+
+  .current-subscription {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .subscription-header h1 {
+    font-size: 26px;
+  }
+}

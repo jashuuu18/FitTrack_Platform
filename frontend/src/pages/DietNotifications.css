@@ -1,0 +1,243 @@
+
+.diet-notifications-page {
+  min-height: 100vh;
+  padding: 35px;
+  background: #f4f8f5;
+  color: #243b30;
+}
+
+.diet-notifications-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.diet-notifications-header > div:first-child > span {
+  color: #2e7955;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.diet-notifications-header h1 {
+  font-size: 32px;
+  margin: 10px 0;
+}
+
+.diet-notifications-header p {
+  color: #718078;
+}
+
+.diet-notification-count {
+  background: #2e7955;
+  color: white;
+  border-radius: 14px;
+  padding: 17px 25px;
+  min-width: 85px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.diet-notification-count strong {
+  font-size: 26px;
+}
+
+.diet-notification-count span {
+  font-size: 13px;
+}
+
+.diet-notification-card {
+  background: white;
+  border-radius: 16px;
+  padding: 27px;
+  box-shadow: 0 4px 15px rgba(30, 70, 45, 0.05);
+}
+
+.diet-notification-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+.diet-notification-toolbar h2 {
+  margin: 0 0 7px;
+}
+
+.diet-notification-toolbar p {
+  color: #718078;
+  margin: 0;
+}
+
+.diet-notification-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.diet-notification-actions button {
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.diet-notification-refresh {
+  border: 1px solid #dce6df;
+  background: white;
+  color: #2e7955;
+}
+
+.diet-notification-read-all {
+  background: #2e7955;
+  color: white;
+  border: none;
+}
+
+.diet-notification-read-all:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.diet-notification-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.diet-notification-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 19px;
+  border: 1px solid #e7eee9;
+  border-radius: 12px;
+}
+
+.diet-notification-item.unread {
+  background: #f1f8f3;
+  border-left: 4px solid #2e7955;
+}
+
+.diet-notification-item.read {
+  background: #fff;
+}
+
+.diet-notification-icon {
+  width: 43px;
+  height: 43px;
+  background: #e4f2e9;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.diet-notification-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.diet-notification-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.diet-notification-title-row h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.diet-notification-content p {
+  color: #718078;
+  margin: 9px 0;
+  overflow-wrap: anywhere;
+}
+
+.diet-notification-content small {
+  color: #89958e;
+}
+
+.diet-notification-new {
+  background: #dcfce7;
+  color: #166534;
+  padding: 4px 9px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.diet-notification-item-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.diet-notification-item-actions button {
+  border: none;
+  background: transparent;
+  color: #2e7955;
+  font-weight: 650;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.diet-notification-item-actions .diet-notification-delete {
+  color: #dc2626;
+}
+
+.diet-notification-empty {
+  padding: 50px 15px;
+  text-align: center;
+  color: #718078;
+}
+
+.diet-notification-empty span {
+  font-size: 40px;
+}
+
+.diet-notification-empty h3 {
+  color: #243b30;
+}
+
+.diet-notification-error {
+  background: #fee2e2;
+  color: #b91c1c;
+  padding: 13px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 768px) {
+  .diet-notifications-page {
+    padding: 18px;
+  }
+
+  .diet-notifications-header,
+  .diet-notification-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .diet-notification-item {
+    flex-wrap: wrap;
+  }
+
+  .diet-notification-item-actions {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .diet-notification-card {
+    padding: 17px;
+  }
+}
